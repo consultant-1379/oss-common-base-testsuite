@@ -1,0 +1,37 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Get Apps List API Duration": ["p(90)<500"],
+    "Get Import Map API Duration": ["p(90)<500"],
+    "Get Static Asset API Duration": ["p(90)<2000"],
+    "Get Docs List API Duration": ["p(90)<500"],
+    "Get Groups List API Duration": ["p(90)<500"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "get_apps_list": {
+      "executor": "per-vu-iterations",
+      "exec": "getApps",
+      "vus": 1,
+      "iterations": 1
+    },
+    "get_import_map_static_asset": {
+      "executor": "per-vu-iterations",
+      "exec": "getAsset",
+      "vus": 1,
+      "iterations": 1
+    },
+    "get_docs_list": {
+      "executor": "per-vu-iterations",
+      "exec": "getDocs",
+      "vus": 1,
+      "iterations": 1
+    },
+    "get_groups_list": {
+      "executor": "per-vu-iterations",
+      "exec": "getGroups",
+      "vus": 1,
+      "iterations": 1
+    }
+  }
+}

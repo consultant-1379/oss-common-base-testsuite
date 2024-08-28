@@ -1,0 +1,9 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Get_Password_Policy_API_Duration": ["avg<500"],
+    "Set_Password_Policy_API_Duration": ["avg<500"],
+    "Reset_Password_API_Duration": ["avg<500"],
+    "checks": ["rate>0.99"]
+  }
+}

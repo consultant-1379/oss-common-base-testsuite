@@ -1,0 +1,18 @@
+{
+  "insecureSkipTLSVerify": true,
+  "minIterationDuration": "20s",
+  "thresholds": {
+    "Create Tenant API Duration": ["p(100)<11000"],
+    "Delete Tenant API Duration": ["p(100)<11000"],
+    "checks": ["rate>0.8"]
+  },
+  "scenarios": {
+    "concurrent_users_tenant": {
+      "executor": "per-vu-iterations",
+      "exec": "maxTenants",
+      "vus": 5,
+      "iterations": 20,
+      "maxDuration": "20m"
+    }
+  }
+}

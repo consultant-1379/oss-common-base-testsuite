@@ -1,0 +1,166 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "teardownTimeout": "360s",
+  "thresholds": {
+    "Enable Disable Clients Cuncurrent Users": ["p(100)<10000"],
+    "Get All External Clients Cuncurrent Users": ["p(100)<10000"],
+    "Get Client Secret Cuncurrent Users": ["p(100)<10000"],
+    "Regenerate Client Secret Cuncurrent Users": ["p(100)<10000"],
+    "Update Realm Roles Cuncurrent Users": ["p(100)<10000"],
+    "View Role Mapping Cuncurrent Users": ["p(100)<10000"],
+    "Get Protocol Mapper Cuncurrent Users": ["p(100)<10000"],
+    "Create Protocol Mapper Cuncurrent Users": ["p(100)<10000"],
+    "Update Protocol Mapper Cuncurrent Users": ["p(100)<10000"],
+    "Delete Protocol Mapper Cuncurrent Users": ["p(100)<10000"],
+    "Get Claims Cuncurrent Users": ["p(100)<10000"],
+
+    "Enable Disable Clients Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Get All External Clients Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Get Client Secret Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Regenerate Client Secret Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Update Realm Roles Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "View Role Mapping Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Get Protocol Mapper Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Create Protocol Mapper Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Update Protocol Mapper Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Delete Protocol Mapper Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "Get Claims Cuncurrent Users Client Credential Flow": ["p(100)<10000"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_users_kpi_enable_disable_Clients": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiEnableDisableClients",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getAllExternalClients": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetAllExternalClients",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getClientsSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetClientsSecret",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_regenerateClientsSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiRegenerateClientsSecret",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_update_realm_roles": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiUpdateRealmRoles",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_viewRoleMapping": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiViewRoleMapping",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetProtocolMapper",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_createProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiCreateProtocolMapper",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_updateProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiUpdateProtocolMapper",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_deleteProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiDeleteProtocolMapper",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getClaims": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetClaims",
+      "vus": 20,
+      "iterations":1
+    },
+
+    "concurrent_users_kpi_enable_disable_Clients_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiEnableDisableClientsSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getAllExternalClients_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetAllExternalClientsSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getClientsSecret_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetClientsSecretSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_regenerateClientsSecret_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiRegenerateClientsSecretSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_update_realm_roles_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiUpdateRealmRolesSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_viewRoleMapping_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiViewRoleMappingSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getProtocolMapper_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetProtocolMapperSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_createProtocolMapper_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiCreateProtocolMapperSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_updateProtocolMapper_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiUpdateProtocolMapperSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_deleteProtocolMapper_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiDeleteProtocolMapperSecretFlow",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getClaims_secretFlow": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetClaimsSecretFlow",
+      "vus": 20,
+      "iterations":1
+    }
+  }
+}

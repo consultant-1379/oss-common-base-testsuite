@@ -1,0 +1,164 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "teardownTimeout": "360s",
+  "thresholds": {
+    "Get All Users Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get All Users Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Get Apps Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get Apps Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Get Roles Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get Roles Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Get Components Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get Components Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Get Groups Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get Groups Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Get Tenants Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get Tenants Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Get CNOM Status Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get CNOM Status Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Get BRO Healthy status Login Flow Concurrent Users": ["p(100)<10000"],
+    "Get BRO Healthy status Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Create Dynamic Routes Login Flow Concurrent Users": ["p(100)<10000"],
+    "Create Dynamic Routes Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Update Dynamic Routes Login Flow Concurrent Users": ["p(100)<10000"],
+    "Update Dynamic Routes Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "Delete Dynamic Routes Login Flow Concurrent Users": ["p(100)<10000"],
+    "Delete Dynamic Routes Client Secret Flow Concurrent Users": ["p(100)<10000"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_getUsersWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getUsersWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getUsersWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getUsersWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getAppsWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getAppsWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getAppsWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getAppsWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getRolesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getRolesWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getRolesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getRolesWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getComponentsWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getComponentsWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getComponentsWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getComponentsWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getGroupsWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getGroupsWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getGroupsWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getGroupsWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getTenantsWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getTenantsWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getTenantsWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getTenantsWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getStatusOverviewAppWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getStatusOverviewAppWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getStatusOverviewAppWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getStatusOverviewAppWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getBROStatusWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getBROStatusWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getBROStatusWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getBROStatusWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_createDynamicRoutesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "createDynamicRoutesWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_createDynamicRoutesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "createDynamicRoutesWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_updateDynamicRoutesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "updateDynamicRoutesWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_updateDynamicRoutesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "updateDynamicRoutesWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_deleteDynamicRoutesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "deleteDynamicRoutesWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_deleteDynamicRoutesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "deleteDynamicRoutesWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    }
+  }
+}

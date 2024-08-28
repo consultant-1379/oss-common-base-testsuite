@@ -1,0 +1,16 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Create User API Duration": ["p(100)<10000"],
+    "checks": ["rate>0.8"]
+  },
+  "scenarios": {
+    "concurrent_users_max_users": {
+      "executor": "per-vu-iterations",
+      "exec": "maxUsers",
+      "vus": 10,
+      "iterations":1,
+      "maxDuration": "2h"
+    }
+  }
+}

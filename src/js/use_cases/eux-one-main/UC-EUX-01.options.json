@@ -1,0 +1,43 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Get Groups List API Duration": ["p(100)<1000"],
+    "Get Apps List API Duration": ["p(100)<1000"],
+    "Get Docs List API Duration": ["p(100)<1000"],
+    "Get Components List API Duration": ["p(100)<1000"],
+    "Get Import Map API Duration": ["p(100)<1000"],
+    "Get Static Asset API Duration": ["p(100)<1000"]
+  },
+  "scenarios": {
+    "eux_get_groups_list": {
+      "executor": "per-vu-iterations",
+      "exec": "getGroups",
+      "vus": 35,
+      "iterations":1
+    },
+    "eux_get_apps_list": {
+      "executor": "per-vu-iterations",
+      "exec": "getApps",
+      "vus": 35,
+      "iterations": 1
+    },
+    "eux_get_docs_list": {
+      "executor": "per-vu-iterations",
+      "exec": "getDocs",
+      "vus": 35,
+      "iterations": 1
+    },
+    "eux_get_components_list": {
+      "executor": "per-vu-iterations",
+      "exec": "getComponents",
+      "vus": 35,
+      "iterations": 1
+    },
+    "eux_get_import_map_static_asset": {
+      "executor": "per-vu-iterations",
+      "exec": "getAsset",
+      "vus": 35,
+      "iterations": 1
+    }
+  }
+}

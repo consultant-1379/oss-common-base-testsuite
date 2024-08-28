@@ -1,0 +1,15 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "GetTenantAPIDuration": ["p(100)<10000"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_users_tenant": {
+      "executor": "per-vu-iterations",
+      "exec": "getTenants",
+      "vus": 5,
+      "iterations": 1
+    }
+  }
+}

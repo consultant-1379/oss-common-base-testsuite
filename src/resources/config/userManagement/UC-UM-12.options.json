@@ -1,0 +1,177 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "teardownTimeout": "360s",
+  "thresholds": {
+    "http_req_duration": ["avg<15000"],
+    "Create_Dynamic_Routes_Login_Flow_Concurrent_Users": ["avg<21000"],
+    "Create_Dynamic_Routes_Client_Secret_Flow_Concurrent_Users": ["avg<21000"],
+    "Update_Dynamic_Routes_Login_Flow_Concurrent_Users": ["avg<24000"],
+    "Update_Dynamic_Routes_Client_Secret_Flow_Concurrent_Users": ["avg<24000"],
+    "Delete_Dynamic_Routes_Login_Flow_Concurrent_Users": ["avg<23000"],
+    "Delete_Dynamic_Routes_Client_Secret_Flow_Concurrent_Users": ["avg<23000"],
+    "Get_Single_Dynamic_Route_Login_Flow_Concurrent_Users": ["avg<23000"],
+    "Get_Single_Dynamic_Route_Client_Secret_Flow_Concurrent_Users": ["avg<23000"],
+    "Get_All_Dynamic_Routes_Login_Flow_Concurrent_Users": ["avg<23000"],
+    "Get_All_Dynamic_Routes_Client_Secret_Flow_Concurrent_Users": ["avg<23000"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_getUsersWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getUsersWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_getUsersWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getUsersWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_createUsersWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "createUsersWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_createUsersWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "createUsersWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_updateUsersWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "updateUsersWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_updateUsersWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "updateUsersWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_deleteUsersWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "deleteUsersWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_deleteUsersWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "deleteUsersWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_getAppsWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getAppsWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getAppsWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getAppsWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getRolesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getRolesWithJSession",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_getRolesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getRolesWithClientSecret",
+      "vus": 20,
+      "iterations":1
+    },
+    "concurrent_getComponentsWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getComponentsWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getComponentsWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getComponentsWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_getGroupsWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getGroupsWithJSession",
+      "vus": 25,
+      "iterations":1
+    },
+    "concurrent_getGroupsWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getGroupsWithClientSecret",
+      "vus": 25,
+      "iterations":1
+    },
+    "concurrent_getSingleRouteWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getSingleRouteWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_getSingleRouteWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getSingleRouteWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_getAllRoutesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "getAllRoutesWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_getAllRoutesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "getAllRoutesWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_createDynamicRoutesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "createDynamicRoutesWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_createDynamicRoutesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "createDynamicRoutesWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_updateDynamicRoutesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "updateDynamicRoutesWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_updateDynamicRoutesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "updateDynamicRoutesWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_deleteDynamicRoutesWithJSession": {
+      "executor": "per-vu-iterations",
+      "exec": "deleteDynamicRoutesWithJSession",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_deleteDynamicRoutesWithClientSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "deleteDynamicRoutesWithClientSecret",
+      "vus": 5,
+      "iterations":1
+    }
+  }
+}

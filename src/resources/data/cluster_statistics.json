@@ -1,0 +1,176 @@
+{
+  "sources": [
+    {
+      "sourceModel": {
+        "sourceType": "aggregation",
+        "method": "array",
+        "sources": [
+          {
+            "_id": "Cluster_Info:cluster_total_cpu",
+            "sourceType": "prometheus",
+            "query": "sum(process_cpu_seconds_total)",
+            "label": "Total cpu seconds/s",
+            "labelOrder": "prometheusLabelFirst",
+            "pollInterval": 15,
+            "minimumStepSize": 5000
+          }
+        ]
+      },
+      "options": {
+        "timeRange": {
+          "start": 3600000
+        },
+        "fileName": "Total_CPU"
+      }
+    },
+    {
+      "sourceModel": {
+        "sourceType": "aggregation",
+        "method": "array",
+        "sources": [
+          {
+            "_id": "Cluster_Info:cluster_total_fds",
+            "sourceType": "prometheus",
+            "query": "sum(process_open_fds)",
+            "label": "Total number of open FDs",
+            "labelOrder": "prometheusLabelFirst",
+            "pollInterval": 15,
+            "minimumStepSize": 5000
+          }
+        ]
+      },
+      "options": {
+        "timeRange": {
+          "start": 3600000
+        },
+        "fileName": "Total_File_Descriptors_open"
+      }
+    },
+    {
+      "sourceModel": {
+        "sourceType": "aggregation",
+        "method": "array",
+        "sources": [
+          {
+            "_id": "Cluster_Info:cluster_total_rss",
+            "sourceType": "prometheus",
+            "query": "sum(process_resident_memory_bytes)",
+            "label": "Total RSS memory in use",
+            "labelOrder": "prometheusLabelFirst",
+            "pollInterval": 15,
+            "minimumStepSize": 5000
+          }
+        ]
+      },
+      "options": {
+        "timeRange": {
+          "start": 3600000
+        },
+        "fileName": "Total_RSS_memory_in_use"
+      }
+    },
+    {
+      "sourceModel": {
+        "sourceType": "aggregation",
+        "method": "array",
+        "sources": [
+          {
+            "_id": "Cluster_Info:cluster_total_virtual_memory",
+            "sourceType": "prometheus",
+            "query": "sum(process_virtual_memory_bytes)",
+            "label": "Total virtual memory in use",
+            "labelOrder": "prometheusLabelFirst",
+            "pollInterval": 15,
+            "minimumStepSize": 5000
+          }
+        ]
+      },
+      "options": {
+        "timeRange": {
+          "start": 3600000
+        },
+        "fileName": "Total_virtual_memory_in_use"
+      }
+    },
+    {
+      "sourceModel": {
+        "sourceType": "aggregation",
+        "method": "array",
+        "sources": [
+          {
+            "_id": "common/vnfcTable:pod_details",
+            "sourceType": "tableAggregation",
+            "sources": [
+              {
+                "source": {
+                  "sourceType": "kubernetes",
+                  "sourceFields": {
+                    "Name": "metadata.name",
+                    "Status": "status.phase"
+                  },
+                  "constructedProperties": {
+                    "Age": "age",
+                    "Restarts": "restarts",
+                    "CPU request": "cpurequest",
+                    "CPU limit": "cpulimit",
+                    "Memory request": "memoryrequest",
+                    "Memory limit": "memorylimit",
+                    "Ready": "readycontainers"
+                  },
+                  "filter": [
+                    {
+                      "property": "metadata.name",
+                      "regex": ".*"
+                    },
+                    {
+                      "property": "status.phase",
+                      "regex": "^(?!Succeeded).*$"
+                    }
+                  ],
+                  "resourceType": "pods"
+                },
+                "key": "Name"
+              },
+              {
+                "source": {
+                  "sourceType": "prometheus",
+                  "query": "1000 * sum(irate(container_cpu_usage_seconds_total{namespace='perseverance', image!=''}[5m])) by (pod)",
+                  "splitByLabelName": "pod",
+                  "labelOrder": "prometheusLabelFirst",
+                  "pollInterval": 15,
+                  "minimumStepSize": 5000
+                },
+                "key": "CPU usage"
+              },
+              {
+                "source": {
+                  "sourceType": "prometheus",
+                  "query": "0.000001 * sum(container_memory_working_set_bytes{container!~'POD|', namespace='perseverance'}) by (pod)",
+                  "splitByLabelName": "pod",
+                  "labelOrder": "prometheusLabelFirst",
+                  "pollInterval": 15,
+                  "minimumStepSize": 5000
+                },
+                "key": "Memory usage"
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "timeRange": {
+          "start": 3600000
+        },
+        "pagination": {
+          "currentPage": 1,
+          "numEntries": 20,
+          "sortMode": "asc",
+          "filter": "",
+          "filterLabel": ""
+        },
+        "fileName": "Pod_status"
+      }
+    }
+  ],
+  "tarballName": "Cluster_statistics"
+}

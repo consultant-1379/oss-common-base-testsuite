@@ -1,0 +1,14 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Get_Password_Policy_API_Duration": ["avg<500"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_getPasswordPolicy": {
+      "executor": "per-vu-iterations",
+      "vus": 5,
+      "iterations":1
+    }
+  }
+}

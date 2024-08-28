@@ -1,0 +1,45 @@
+{
+  "id":"",
+  "predicates":[
+     {
+        "name":"Path",
+        "args":{
+           "_genkey_0":"/metrics"
+        }
+     }
+  ],
+  "filters":[
+     {
+        "name":"AddRequestHeader",
+        "args":{
+           "_genkey_0":"X-RateLimit-Map-Name",
+           "_genkey_1":"so-rate-limiter"
+        }
+     },
+     {
+        "name":"AddRequestHeader",
+        "args":{
+           "_genkey_0":"X-RateLimit-Max-Access",
+           "_genkey_1":"10"
+        }
+     },
+     {
+        "name":"AddRequestHeader",
+        "args":{
+           "_genkey_0":"X-RateLimit-Reset-Time",
+           "_genkey_1":"1"
+        }
+     },
+     {
+        "name":"RateLimitFilter",
+        "args":{
+           
+        }
+     }
+  ],
+  "uri":"http://eric-ref-sdk-hello-world:8050",
+  "metadata":{
+     
+  },
+  "order":0
+}

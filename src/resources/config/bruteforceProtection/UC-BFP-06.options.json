@@ -1,0 +1,8 @@
+{
+  "insecureSkipTLSVerify": true,
+  "minIterationDuration": "1.2s",
+  "iterations": 29,
+  "thresholds": {
+    "checks": ["rate>0.99"]
+  }
+}

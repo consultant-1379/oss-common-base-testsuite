@@ -1,0 +1,73 @@
+modelVersion: 2.0
+
+docker-images:
+  - py-builder: armdocker.rnd.ericsson.se/proj-adp-cicd-drop/bob-python3builder:latest
+  - helm-dr-check: armdocker.rnd.ericsson.se/sandbox/adp-staging/adp-cicd/common-library-adp-helm-dr-check:latest
+  - adp-release-auto: armdocker.rnd.ericsson.se/sandbox/adp-staging/adp-cicd/bob-adp-release-auto:latest
+
+properties:
+  - helm-chart-name: eric-oss-uds
+  - helm-chart-repo: https://arm.rnd.ki.sw.ericsson.se/artifactory/proj-so-gs-all-helm
+  - gerrit-url: https://gerrit-gamma.gic.ericsson.se/plugins/gitiles/OSS/com.ericsson.oss.common.uds.service/uds-baseline
+
+
+var:
+  - version
+
+env:
+  - RELEASE (default=true)
+  - API_TOKEN (default=AKCp5Zkxbnwu5eezdN5AaY7SbZUx1rwEPfdohB9mJ38Zt6BUap4H7e8smvxCGz6JGpWSWH3kJ)
+  - PWD
+  - HELM_REPO_CREDENTIALS
+  - EO_GAS_URL
+  - EO_GAS_USERNAME
+  - EO_GAS_PASSWORD
+
+rules:
+  adp-helm-dr-check:
+    - task: dr-check
+      docker-image: helm-dr-check
+      cmd: helm-dr-check
+        --helm-chart charts/${helm-chart-name}
+        -DhelmDesignRule.setValue.eric-oss-pf="global.hosts.pf=fakepf.hostname.com;defaultUser.username=username;defaultUser.username=password"
+        -Dhelmdrck.credential.file.path=${env.HELM_REPO_CREDENTIALS}
+        --output ./
+        ${skipped-design-rules}
+  init:
+    - task: version
+      docker-image: adp-release-auto
+      cmd: version-handler generate --is-release=true --git-repo-path . --output version
+
+  clean:
+    - task: rm
+      cmd:
+        - rm -rf .bob/
+        - rm -f artifact.properties
+
+  build:
+    - task: build
+      cmd:
+        - docker run hello-world
+  run:
+    - task: run
+      cmd:
+        - docker run --rm gas-int-test
+
+  publish:
+    - task: helm-upload
+      docker-image: adp-release-auto
+      docker-flags:
+        - --network host
+      cmd: upload_file.sh
+        --filename=helm-target/${helm-chart-name}-${var.version}.tgz
+        --repository=${helm-chart-repo}/${helm-chart-name}/
+        --api-token=${env.API_TOKEN}
+
+  Artifact:
+    - task: adp-artifacts-properties
+      docker-image: adp-release-auto
+      cmd:
+        - generate-adp-artifacts
+          --chart-name ${helm-chart-name}
+          --chart-version ${var.version}
+          --chart-repo ${helm-chart-repo}

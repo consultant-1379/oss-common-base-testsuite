@@ -1,0 +1,22 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Create User API Duration Cuncurrent Users": ["p(100)<200"],
+    "Get Users API Duration Cuncurrent Users": ["p(100)<4100"],
+    "Get User By Name API Duration Cuncurrent Users": ["p(100)<100"],
+    "Update User API Duration Cuncurrent Users": ["p(100)<150"],
+    "Delete User API Duration Cuncurrent Users": ["p(100)<200"],
+    "Filter User API Duration Cuncurrent Users": ["p(100)<100"],
+    "Get Roles API Duration Cuncurrent Users": ["p(100)<200"],
+    "Reset Password API Duration Cuncurrent Users": ["p(100)<390"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_users_kpi": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpi",
+      "vus": 10,
+      "iterations":1
+    }
+  }
+}

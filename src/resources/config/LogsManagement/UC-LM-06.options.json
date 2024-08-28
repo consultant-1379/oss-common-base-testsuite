@@ -1,0 +1,72 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "teardownTimeout": "360s",
+  "thresholds": {
+      "Get All Logs Users": ["avg<8000"],
+      "Get All Logs Clients": ["avg<8000"],
+      "Get Logs for specific service-id Users": ["avg<9000"],
+      "Get Logs for specific service-id Clients": ["avg<9000"],
+      "Get Logs for specific plain text Users": ["avg<12000"],
+      "Get Logs for specific plain text Clients": ["avg<12000"],
+      "Get Logs for specific plain text and service-id Users": ["avg<11000"],
+      "Get Logs for specific plain text and service-id Clients": ["avg<11000"],
+      "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_users_kpi_get_logs": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsWithJSession",
+      "vus": 2,
+      "iterations":1
+    },
+    "concurrent_clients_kpi_get_logs": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsWithClientSecret",
+      "vus": 2,
+      "iterations":1
+    },
+    "concurrent_users_kpi_get_logs_specific_service_id": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsServiceIdWithJSession",
+      "vus": 2,
+      "startTime":"20s",
+      "iterations":1
+    },
+    "concurrent_clients_kpi_get_logs_specific_service_id": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsServiceIdWithClientSecret",
+      "vus": 2,
+      "startTime":"20s",
+      "iterations":1
+    },
+    "concurrent_users_kpi_get_logs_specific_plain_text": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsPlainTextWithJSession",
+      "startTime": "40s",
+      "vus": 2,
+      "iterations":1
+    },
+    "concurrent_clients_kpi_get_logs_specific_plain_text": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsPlainTextWithClientSecret",
+      "startTime": "40s",
+      "vus": 2,
+      "iterations":1
+    },
+    "concurrent_users_kpi_get_logs_specific_plain_text_and_service_id": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsPlainTextAndIdWithJSession",
+      "startTime": "60s",
+      "vus": 2,
+      "iterations":1
+    },
+    "concurrent_clients_kpi_get_logs_specific_plain_text_and_service_id": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsPlainTextAndIdWithClientSecret",
+      "startTime": "60s",
+      "vus": 2,
+      "iterations":1
+    }
+  }
+}

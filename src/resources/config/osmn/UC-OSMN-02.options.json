@@ -1,0 +1,42 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "teardownTimeout": "360s",
+  "thresholds": {
+    "http_req_duration": ["avg<15000"],
+    "Upload Objects in Bucket": ["avg<21000"],
+    "List of Objects in Bucket": ["avg<15000"],
+    "Download Objects from Bucket": ["avg<15000"],
+    "Remove All Objects in Bucket": ["avg<15000"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_cluster_uploadObjectInBucket": {
+      "executor": "per-vu-iterations",
+      "exec": "uploadObjectInBucket",
+      "vus": 5,
+      "iterations":10
+    },
+    "concurrent_cluster_listObjectsInBucket": {
+      "executor": "per-vu-iterations",
+      "exec": "listObjectsInBucket",
+      "startTime":"20s",
+      "vus": 1,
+      "iterations":1
+    },
+    "concurrent_cluster_downloadObjectsFromBucket": {
+      "executor": "per-vu-iterations",
+      "exec": "downloadObjectsFromBucket",
+      "startTime":"25s",
+      "vus": 5,
+      "iterations":10
+    },
+    "concurrent_cluster_removeAllObjectsInBucket": {
+      "executor": "per-vu-iterations",
+      "exec": "removeAllObjectsInBucket",
+      "startTime":"60s",
+      "vus": 1,
+      "iterations":1
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "checks": ["rate>0.99"]
+  }
+}

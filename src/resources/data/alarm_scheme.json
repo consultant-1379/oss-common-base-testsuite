@@ -1,0 +1,62 @@
+[
+    {
+        "alarmName": "DocumentDatabaseLowDiskSpace", 
+        "serviceName": "eric-cm-mediator-db-pg", 
+        "expected": 1
+    },
+    {
+        "alarmName":"DocumentDatabaseLowDiskSpace", 
+        "serviceName": "eric-cnom-server-database-pg", 
+        "expected": 1
+    },
+    {
+        "alarmName": "null", 
+        "serviceName": "eric-ctrl-bro", 
+        "expected": 1
+    },
+    {
+        "alarmName": "null", 
+        "serviceName": "eric-data-distributed-coordinator-ed", 
+        "expected": 1
+    },
+    {
+        "alarmName": "null", 
+        "serviceName": "eric-data-object-storage-mn", 
+        "expected": 1
+    },
+    {
+        "alarmName": "null", 
+        "serviceName": "eric-data-search-engine", 
+        "expected": 1
+    },
+    {
+        "alarmName": "DocumentDatabaseLowDiskSpace", 
+        "serviceName": "eric-fh-alarm-handler-db-pg", 
+        "expected": 1
+    },
+    {
+        "alarmName": "DocumentDatabaseLowDiskSpace", 
+        "serviceName": "eric-lm-combined-server-db-pg", 
+        "expected": 1
+    },
+    {
+        "alarmName": "DocumentDatabaseLowDiskSpace", 
+        "serviceName": "eric-oss-common-postgres", 
+        "expected": 1
+    },
+    {
+        "alarmName": "DocumentDatabaseLowDiskSpace", 
+        "serviceName": "eric-oss-license-consumer-database-pg", 
+        "expected": 1
+    },
+    {
+        "alarmName": "null", 
+        "serviceName":"eric-pm-server", 
+        "expected": 3
+    },
+    {
+        "alarmName": "DocumentDatabaseLowDiskSpace", 
+        "serviceName": "eric-sec-access-mgmt-db-pg", 
+        "expected": 1
+    }
+]

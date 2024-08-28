@@ -1,0 +1,9 @@
+{
+  "users": [
+    { "username": "tenant_test_1", "password": "Newericsson123!_1" , "tenantname":  "master", "base_url":  ""},
+    { "username": "tenant_test_2", "password": "Newericsson123!_2" , "tenantname":  "master", "base_url":  ""},
+    { "username": "tenant_test_3", "password": "Newericsson123!_3" , "tenantname":  "master", "base_url":  ""},
+    { "username": "tenant_test_4", "password": "Newericsson123!_4" , "tenantname":  "master", "base_url":  ""},
+    { "username": "tenant_test_5", "password": "Newericsson123!_5" , "tenantname":  "master", "base_url":  ""}
+  ]
+}

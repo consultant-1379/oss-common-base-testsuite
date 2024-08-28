@@ -1,0 +1,12 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "CreateUserAPIDurationSingleUser": ["p(100)<200"],
+    "GetUsersAPIDurationSingleUser": ["p(100)<4100"],
+    "UpdateUserAPIDurationSingleUser": ["p(100)<150"],
+    "DeleteUserAPIDurationSingleUser": ["p(100)<200"],
+    "FilterUserAPIDurationSingleUser": ["p(100)<100"],
+    "GetRolesAPIDurationSingleUser": ["p(100)<200"],
+    "checks": ["rate>0.99"]
+  }
+}

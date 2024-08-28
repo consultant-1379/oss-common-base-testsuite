@@ -1,0 +1,80 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "minIterationDuration": "10s",
+  "thresholds": {
+    "Create_trusted_certificate_API_Duration": ["avg<19500"],
+    "Create_asymmetric_key_API_Duration": ["avg<17000"],
+    "Remove_trusted_certificate_API_Duration": ["avg<15500"],
+    "Remove_asymmetric_key_API_Duration": ["avg<17500"],
+    "Get_trusted_certificates_API_Duration": ["avg<17000"], 
+    "Get_trusted_certificate_by_name_API_Duration": ["avg<17000"], 
+    "Update_trusted_certificate_API_Duration": ["avg<20000"], 
+    "Get_asymmetric_keys_API_Duration": ["avg<17500"], 
+    "Get_asymmetric_key_by_name_API_Duration": ["avg<16500"], 
+    "Update_asymmetric_key_API_Duration": ["avg<18000"], 
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_updateTrustedCertificate": {
+      "executor": "per-vu-iterations",
+      "exec": "updateTrustedCertificate",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_getTrustedCertificateByName": {
+      "executor": "per-vu-iterations",
+      "exec": "getTrustedCertificateByName",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_removeTrustedCertificate": {
+      "executor": "per-vu-iterations",
+      "exec": "removeTrustedCertificate",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_updateAsymmetricKey": {
+      "executor": "per-vu-iterations",
+      "exec": "updateAsymmetricKey",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_getAsymmetricKeyByName": {
+      "executor": "per-vu-iterations",
+      "exec": "getAsymmetricKeyByName",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_removeAsymmetricKey": {
+      "executor": "per-vu-iterations",
+      "exec": "removeAsymmetricKey",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_getTrusteCertificates": {
+      "executor": "per-vu-iterations",
+      "exec": "getTrusteCertificates",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_getAsymmetrickeys": {
+      "executor": "per-vu-iterations",
+      "exec": "getAsymmetrickeys",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_createTrustedCertificate": {
+      "executor": "per-vu-iterations",
+      "exec": "createTrustedCertificate",
+      "vus": 4,
+      "iterations":1
+    },
+    "concurrent_createAsymmetricKey": {
+      "executor": "per-vu-iterations",
+      "exec": "createAsymmetricKey",
+      "vus": 4,
+      "iterations":1
+    }
+  }
+}

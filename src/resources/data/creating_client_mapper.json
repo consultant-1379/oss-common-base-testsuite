@@ -1,0 +1,9 @@
+{
+    "name": "",
+    "protocolMapper": "Hard coded claim",
+    "protocolMapperClaimConfig": {
+        "claimName": "test2",
+        "claimValue": "test",
+        "claimJsonType": "String"
+    }
+}

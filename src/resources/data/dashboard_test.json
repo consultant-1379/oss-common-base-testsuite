@@ -1,0 +1,76 @@
+{
+  "namespace": "example",
+  "dashboards": [
+    {
+      "_id": "TEST:dashboard",
+      "title": "Test Dashboard",
+      "apps": ["statusOverview"],
+      "order": 0,
+      "topology": false,
+      "tiles": [
+        {
+          "xSize": 2,
+          "widget": "example_kpi"
+        },
+        {
+          "xSize": 6,
+          "widget": "example_timeline"
+        },
+        {
+          "xSize": 2,
+          "widget": "example_bar_chart"
+        },
+        {
+          "xSize": 10,
+          "ySize": 2,
+          "widget": "builtin:pod_table"
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "_id": "example_kpi",
+      "widgetType": "kpi",
+      "title": "KPI",
+      "sources": [
+        {
+          "heading": "Total CPU",
+          "source": "example_cpu_total"
+        },
+        {
+          "heading": "CPU per worker",
+          "source": "example_cpu_by_worker"
+        }
+      ]
+    },
+    {
+      "_id": "example_timeline",
+      "widgetType": "timeline",
+      "title": "Total CPU",
+      "unit": "cpu seconds/s",
+      "sources": [{ "source": "example_cpu_total" }]
+    },
+    {
+      "_id": "example_bar_chart",
+      "widgetType": "barChart",
+      "title": "CPU per worker",
+      "unit": "cpu seconds/s",
+      "sources": [{ "source": "example_cpu_by_worker" }]
+    }
+  ],
+  "sources": [
+    {
+      "_id": "example_cpu_total",
+      "sourceType": "prometheus",
+      "query": "sum(irate(container_cpu_usage_seconds_total[2m]))",
+      "label": "Total cpu seconds/s"
+    },
+    {
+      "_id": "example_cpu_by_worker",
+      "sourceType": "prometheus",
+      "query": "sum(irate(container_cpu_usage_seconds_total[2m])) by (kubernetes_io_hostname)",
+      "splitByLabelName": "kubernetes_io_hostname"
+    }
+  ]
+}

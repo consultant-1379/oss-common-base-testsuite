@@ -1,0 +1,12 @@
+dn: uid=testuser1,ou=users,dc=example,dc=org
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetOrgPerson
+cn: test1
+sn: user1
+uid: testuser1
+uidNumber: 5000
+gidNumber: 5000
+homeDirectory: /home/testuser1
+loginShell: /bin/sh
+gecos: Comments

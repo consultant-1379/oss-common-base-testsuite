@@ -1,0 +1,19 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Get Apps List API Duration Concurrent Users": ["avg<1000"],
+    "Get Groups List API Duration Concurrent Users": ["avg<1000"],
+    "Get Components List API Duration Concurrent Users": ["avg<1000"],
+    "Get Import Map API Duration Concurrent Users": ["avg<1000"],
+    "Get Static Asset API Duration Concurrent Users": ["avg<1000"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_users_kpi": {
+      "executor": "per-vu-iterations",
+      "exec": "gasKpi",
+      "vus": 70,
+      "iterations":1
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+      "Export all cluster statistics API duration": ["p(100)<60000"],
+      "Export Total CPU API duration": ["p(100)<60000"],
+      "Export Total FDS API duration": ["p(100)<60000"],
+      "Export Total RSS Memory API duration": ["p(100)<60000"],
+      "Export Total Virutal Memory duration": ["p(100)<60000"],
+      "Export Pod Status API duration":["p(100)<60000"],
+      "Speed(mb/sec) for downloading the metrics":["p(100)<100"],
+       "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_cluster_metrics": {
+      "executor": "per-vu-iterations",
+      "exec": "clusterMetrics",
+      "vus": 3,
+      "iterations":1
+    }   
+}
+}

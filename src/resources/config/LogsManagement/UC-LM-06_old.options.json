@@ -1,0 +1,24 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "teardownTimeout": "360s",
+  "thresholds": {
+      "Get All Logs Users": ["p(100)<60000"],
+      "Get All Logs Clients": ["p(100)<60000"],
+      "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_users_kpi_get_logs": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsWithJSession",
+      "vus": 30,
+      "iterations":1
+    },
+    "concurrent_clients_kpi_get_logs": {
+      "executor": "per-vu-iterations",
+      "exec": "logViewerCharacteristicsWithClientSecret",
+      "vus": 30,
+      "iterations":1
+    }
+  }
+}

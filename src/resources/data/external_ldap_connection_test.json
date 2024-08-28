@@ -1,0 +1,10 @@
+{
+  "action":"testConnection",
+  "connectionUrl":"",
+  "authType":"simple",
+  "bindDn":"",
+  "bindCredential":"",
+  "useTruststoreSpi":"ldapsOnly",
+  "connectionTimeout":"",
+  "startTls":""
+}

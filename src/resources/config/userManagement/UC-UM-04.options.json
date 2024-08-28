@@ -1,0 +1,10 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "CreateTenantAPIDurationSingleUser": ["p(100)<10000"],
+    "GetTenantsAPIDurationSingleUser": ["p(100)<200"],
+    "UpdateTenantAPIDurationSingleUser": ["p(100)<200"],
+    "DeleteTenantAPIDurationSingleUser": ["p(100)<200"],
+    "checks": ["rate>0.99"]
+  }
+}

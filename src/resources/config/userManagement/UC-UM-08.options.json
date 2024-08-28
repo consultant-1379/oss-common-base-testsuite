@@ -1,0 +1,6 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "checks{logginStackTag:logging stack}": ["rate>0.99"]
+  }
+}

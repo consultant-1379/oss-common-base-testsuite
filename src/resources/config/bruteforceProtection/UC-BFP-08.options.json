@@ -1,0 +1,9 @@
+{
+  "insecureSkipTLSVerify": true,
+  "thresholds": {
+    "Enable_Brute_Force_Protection_API_Duration": ["p(100)<500"],
+    "Disable_Brute_Force_Protection_API_Duration": ["p(100)<500"],
+    "Configure_Brute_Force_Protection_API_Duration": ["p(100)<500"],
+    "checks": ["rate>0.99"]
+  }
+}

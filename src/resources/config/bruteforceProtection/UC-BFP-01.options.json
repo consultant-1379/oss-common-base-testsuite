@@ -1,0 +1,9 @@
+{
+  "insecureSkipTLSVerify": true,
+  "iterations": 30,
+  "thresholds": {
+    "Update_Brute_Force_Protection_API_Duration": ["p(100)<200"],
+    "Get_Brute_Force_Protection_API_Duration": ["p(100)<200"],
+    "checks": ["rate>0.99"]
+  }
+}

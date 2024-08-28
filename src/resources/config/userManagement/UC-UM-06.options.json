@@ -1,0 +1,66 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "900s",
+  "teardownTimeout": "900s",
+  "thresholds": {
+    "Create_User_API_Duration_Cuncurrent_Users": ["avg<6000"],
+    "Get_Users_API_Duration_Cuncurrent_Users": ["avg<30000"],
+    "Get_User_By_Name_API_Duration_Cuncurrent_Users": ["avg<4000"],
+    "Update_User_API_Duration_Cuncurrent_Users": ["avg<4000"],
+    "Delete_User_API_Duration_Cuncurrent_Users": ["avg<4000"],
+    "Filter_User_API_Duration_Cuncurrent_Users": ["avg<4000"],
+    "Get_Roles_API_Duration_Cuncurrent_Users": ["avg<6000"],
+    "Reset_Password_API_Duration_Cuncurrent_Users": ["avg<2000"],
+    "checks": ["rate>0.90"]
+  },
+  "scenarios": {
+    "concurrent_users_kpi_create": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiCreate",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_update": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiUpdate",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_filter": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiFilter",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getAll": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetAll",
+      "vus": 5,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getByName": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetByName",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_resetPassword": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiResetPassword",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getRoles": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetRoles",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_delete": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiDelete",
+      "vus": 10,
+      "iterations":1
+    }
+  }
+}

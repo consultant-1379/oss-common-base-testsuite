@@ -1,0 +1,8 @@
+{
+  "insecureSkipTLSVerify": true,
+  "vus": 10,
+  "duration": "1s",
+  "thresholds": {
+    "checks": ["rate>0.99"]
+  }
+}

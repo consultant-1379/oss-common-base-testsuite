@@ -1,0 +1,101 @@
+{
+  "insecureSkipTLSVerify": true,
+  "setupTimeout": "360s",
+  "teardownTimeout": "360s",
+  "thresholds": {
+    "Enable_Disable_Clients_Cuncurrent_Users": ["avg<8000"],
+    "Get_All_External_Clients_Cuncurrent_Users": ["avg<10000"],
+    "Get_Client_By_Attribute_Cuncurrent_Users": ["avg<8000"],
+    "Get_Client_Secret_Cuncurrent_Users": ["avg<1000"],
+    "Regenerate_Client_Secret_Cuncurrent_Users": ["avg<8000"],
+    "Update_Realm_Roles_Cuncurrent_Users": ["avg<8000"],
+    "View_Role_Mapping_Cuncurrent_Users": ["avg<8000"],
+    "Get_Protocol_Mapper_Cuncurrent_Users": ["avg<8000"],
+    "Get_Protocol_Mapper_By_Attribute_Cuncurrent_Users": ["avg<8000"],
+    "Create_Protocol_Mapper_Cuncurrent_Users": ["avg<8000"],
+    "Update_Protocol_Mapper_Cuncurrent_Users": ["avg<8000"],
+    "Delete_Protocol_Mapper_Cuncurrent_Users": ["avg<8000"],
+    "Get_Claims_Cuncurrent_Users": ["avg<15000"],
+    "checks": ["rate>0.99"]
+  },
+  "scenarios": {
+    "concurrent_users_kpi_enable_disable_Clients": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiEnableDisableClients",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getAllExternalClients": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetAllExternalClients",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getClientByAttribute": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetClientByAttribute",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getClientsSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetClientsSecret",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_regenerateClientsSecret": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiRegenerateClientsSecret",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_update_realm_roles": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiUpdateRealmRoles",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_viewRoleMapping": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiViewRoleMapping",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetProtocolMapper",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getProtocolMapperByAttribute": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetProtocolMapperByAttribute",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_createProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiCreateProtocolMapper",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_updateProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiUpdateProtocolMapper",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_deleteProtocolMapper": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiDeleteProtocolMapper",
+      "vus": 10,
+      "iterations":1
+    },
+    "concurrent_users_kpi_getClaims": {
+      "executor": "per-vu-iterations",
+      "exec": "usermgmtKpiGetClaims",
+      "vus": 10,
+      "iterations":1
+    }
+  }
+}

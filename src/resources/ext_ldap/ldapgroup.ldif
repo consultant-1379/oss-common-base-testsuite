@@ -1,0 +1,3 @@
+dn: cn=ldapgroup,ou=group,dc=example,dc=org
+objectClass: groupOfNames
+member: uid=testuser1,ou=users,dc=example,dc=org

@@ -1,0 +1,29 @@
+{
+  "source": {
+    "sourceType": "aggregation",
+    "method": "array",
+    "sources": [
+      {
+        "sourceType": "elasticFieldCount",
+        "target": "",
+        "query": "(*)",
+        "timeFilterField": "timestamp",
+        "countField": "logplane.keyword"
+      }
+    ]
+  },
+  "options": {
+    "timeRange": {
+      "start": "",
+      "end": ""
+    },
+    "pagination": {
+      "currentPage": 1,
+      "numEntries": 20,
+      "sortMode": "desc",
+      "sortAttr": "count",
+      "filter": "",
+      "filterLabel": ""
+    }
+  }
+}

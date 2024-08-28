@@ -1,0 +1,10 @@
+{
+    "clientId": "",
+    "enabled": true,
+    "attributes": {
+        "ExternalClient": "True"
+    },
+    "serviceAccountsEnabled": true,
+    "standardFlowEnabled": false,
+    "secret": ""
+}
